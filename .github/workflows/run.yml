@@ -12,7 +12,8 @@ jobs:
             - uses: actions/setup-node@v1
               with:
                   node-version: 12
-            - run: npx github-stats-box
+            - uses: actions/checkout@v2
+            - run: npm install && node index.js
               env:
                   GH_TOKEN: ${{ secrets.GH_TOKEN }} # Do not edit, defined in secrets
                   GIST_ID: ${{ secrets.GIST_ID }} # Do not edit, defined in secrets. The ID portion from your gist url
